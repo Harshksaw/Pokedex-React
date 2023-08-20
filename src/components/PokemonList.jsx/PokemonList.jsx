@@ -3,7 +3,9 @@
 import "./PokemonList.css";
 
 import usePokemonList from "../../Hooks/usePokemonList";  //custom hook
-import Pokemon from "../Pokemon/Pokemon";
+import Pokemon from "../Pokemon/Pokemon"; // Corrected import path
+
+
  
 export default function PokemonList() {
   //to use custom hooks ->
