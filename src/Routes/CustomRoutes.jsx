@@ -1,7 +1,8 @@
 
 import { Routes, Route } from "react-router-dom"
 import Pokedex from "../components/pokedex/Pokedex"
-import PokemonDetails from "../components/pokemondetails/pokemondetails"
+import PokemonDetails from "../components/pokemondetails/pokemondetails.jsx";
+
 
 
 
