@@ -1,8 +1,9 @@
 // import { useEffect, useState } from "react";
 // import axios from "axios";
 import "./PokemonList.css";
-import Pokemon from "../Pokemon/pokemon";
+
 import usePokemonList from "../../Hooks/usePokemonList";  //custom hook
+import Pokemon from "../Pokemon/Pokemon";
  
 export default function PokemonList() {
   //to use custom hooks ->
