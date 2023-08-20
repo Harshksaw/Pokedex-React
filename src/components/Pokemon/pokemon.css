@@ -1,0 +1,23 @@
+.pokemon {
+  margin-top: 2rem;
+  display: flex;
+  flex-basis: 20%;
+  height: 300px;
+  align-items: center;
+  width: 300px;
+  flex-direction: column;
+}
+
+/* .pokemon>img {
+    height: 150px;
+    max-height: 100%;
+} */
+.pokemon-image {
+  height: 150px;
+  max-height: 80%;
+  margin-top: 1rem;
+}
+.pokemon-name {
+  font-size: larger;
+  letter-spacing: 0.4rem;
+}
