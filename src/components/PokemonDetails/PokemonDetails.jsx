@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom";
 import "./PokemonDetails.css";
-import usePokemonList from "../../Hooks/usePokemonList";
+// import usePokemonList from "../../Hooks/usePokemonList";
 import usePokemonDetails from "../../Hooks/usePokemonDetails";
 
 export default function PokemonDetails() {
