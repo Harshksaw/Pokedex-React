@@ -1,12 +1,12 @@
-import { useParams } from "react-router-dom";
+
 import "./PokemonDetails.css";
-// import usePokemonList from "../../Hooks/usePokemonList";
+
 import usePokemonDetails from "../../Hooks/usePokemonDetails";
-
-export default function PokemonDetails({pokemonName}) {
-  const { id } = useParams();
-  const [pokemon] = usePokemonDetails(id, pokemonName);
-
+import Pokemon from "../Pokemon/Pokemon";
+export default function PokemonDetails({ pokemonName }) {
+  // const { id } = useParams();
+  // const [pokemon] = usePokemonDetails(id, pokemonName);
+  const [pokemon, pokemonListState] = usePokemonDetails(pokemonName);
   return (
     <div className="pokemon-details-wrapper">
       <div className="pokemon-details-name">
@@ -22,17 +22,23 @@ export default function PokemonDetails({pokemonName}) {
       <div className="pokemon-details-types">
         {pokemon.types && pokemon.types.map((t) => <div key={t}>{t}</div>)}
       </div>
+     
 
-      {pokemon.types && pokemon.similarPokemon && (
+
+      
+      {pokemon.types && pokemon.similarPokemon && 
         <div className="pokemon-details-names">
+
           <h2>More {pokemon.types[0]} Type Pokemon</h2>
           <ul>
             {pokemon.similarPokemon.map((p) => 
               <li key={p.pokemon.url}>{p.pokemon.name}</li>
+              
             )}
+
           </ul>
         </div>
-      )}
+      }
     </div>
   );
 }

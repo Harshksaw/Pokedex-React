@@ -1,12 +1,14 @@
 import axios from "axios";
 
-import usePokemonList from "./usePokemonList";
-import { useEffect, useState } from "react";
 
-export default function usePokemonDetails(id, pokemonName) {
+import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+
+export default function usePokemonDetails(pokemonName) {
+  const {id} = useParams();
   const [pokemon, setPokemon] = useState({});
 
-  async function downloadPokemon() {
+  async function downloadPokemon(id) {
     try {
       let response;
 
@@ -20,9 +22,7 @@ export default function usePokemonDetails(id, pokemonName) {
 
       //ON the basis of Its Type Taking similar Pokemon
       const pokemonOfSameTypes = await axios.get(
-        `https://pokeapi.co/api/v2/type/${
-          response.data.types ? response.data.types[0].type.name : ""
-        }`
+        `https://pokeapi.co/api/v2/type/${response.data.types ? response.data.types[0].type.name : ""}`
       );
 
       setPokemon({
@@ -33,21 +33,21 @@ export default function usePokemonDetails(id, pokemonName) {
         types: response.data.types.map((t) => t.type.name),
         similarPokemons: pokemonOfSameTypes.data.pokemon,
       });
-      console.log(response.data.types);
+
       setPokemonListState({
         ...PokemonListState,
-        type: response.data.types ? response.data.types[0].type.name : "",
+        type: response.data.types ? response.data.types[0].type.name : " ",
       });
     } catch (error) {
       console.log("Something in usePokemondetails hooks");
     }
   }
 
-  const [PokemonListState, setPokemonListState] = usePokemonList();
+  const [PokemonListState, setPokemonListState] = useState({});
   useEffect(() => {
-    downloadPokemon();
-    console.log("LIST", pokemon.types, PokemonListState);
-  }, []); // Added 'id' to the dependency array
+    downloadPokemon(id);
+
+  }, [id]); // Added 'id' to the dependency array
 
   return [pokemon];
 }

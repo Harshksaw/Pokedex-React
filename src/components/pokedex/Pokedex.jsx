@@ -3,7 +3,7 @@
 import './Pokedex.css'
 import Search from '../search/Search.jsx'
 import PokemonList from '../PokemonList.jsx/PokemonList';
-import { useEffect, useState } from 'react';
+import {  useState } from 'react';
 import PokemonDetails from '../PokemonDetails/PokemonDetails';
 export default function Pokedex() {
 

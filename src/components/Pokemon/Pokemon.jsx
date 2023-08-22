@@ -17,11 +17,11 @@ export default function Pokemon({ name, image, id }) {
   );
 }
 
-Pokemon.propTypes = {
-  name: PropTypes.string.isRequired,
-  image: PropTypes.string.isRequired,
-  id: PropTypes.oneOfType([
-    PropTypes.string, // Allow string type
-    PropTypes.number, // Allow number type
-  ]).isRequired,
-};
+// Pokemon.propTypes = {
+//   name: PropTypes.string.isRequired,
+//   image: PropTypes.string.isRequired,
+//   id: PropTypes.oneOfType([
+//     PropTypes.string, // Allow string type
+//     PropTypes.number, // Allow number type
+//   ]).isRequired,
+// };
